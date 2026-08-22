@@ -1,0 +1,7 @@
+{
+  "name": "room_upgrade_request",
+  "input": "Can I upgrade my room to a suite?",
+  "expected_intent": "room_upgrade",
+  "expected_workflow": "room_upgrade",
+  "expected_actions": ["notify_guest"]
+}
