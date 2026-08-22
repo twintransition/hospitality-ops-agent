@@ -4,8 +4,11 @@ This workflow remains deterministic before LLM integration.
 The business rules are separated from future AI reasoning.
 """
 
+import uuid
+
 from app.services.lookup_service import find_reservation, get_policy
 from app.database.action_store import save_agent_action
+from app.database.conversation_store import save_conversation
 
 
 def evaluate_late_checkin(reservation, policy):
@@ -53,7 +56,26 @@ def process_late_checkin(reservation_id: str, guest_message: str):
         result.get("reason", ""),
     )
 
+    response = (
+        "Your late check-in has been approved. "
+        "Check-in instructions will be provided."
+        if result["decision"] == "approved"
+        else "Your request requires staff review."
+    )
+
+    guest_id = reservation.get("guest_id") if reservation else "unknown"
+
+    save_conversation(
+        str(uuid.uuid4()),
+        guest_id,
+        reservation_id,
+        guest_message,
+        response,
+        "late_checkin",
+    )
+
     result["intent"] = "late_checkin"
     result["guest_message"] = guest_message
+    result["response"] = response
 
     return result
