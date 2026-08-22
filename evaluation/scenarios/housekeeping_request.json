@@ -1,0 +1,7 @@
+{
+  "name": "housekeeping_request",
+  "input": "I need extra towels in my room",
+  "expected_intent": "housekeeping",
+  "expected_workflow": "housekeeping",
+  "expected_actions": ["create_housekeeping_task"]
+}
