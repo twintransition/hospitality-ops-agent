@@ -1,0 +1,11 @@
+{
+  "scenario": "late_checkin",
+  "guest_request": "My flight arrives at 1 AM. Can I still check in?",
+  "required_actions": [
+    "lookup_reservation",
+    "retrieve_late_checkin_policy",
+    "make_decision",
+    "send_guest_response"
+  ],
+  "expected_outcome": "late_checkin_instruction_sent"
+}
