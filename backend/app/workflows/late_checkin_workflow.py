@@ -1,8 +1,10 @@
 """Late check-in operational workflow.
 
-This is intentionally deterministic before LLM integration.
-The workflow validates business steps first, then an AI layer can assist.
+This workflow remains deterministic before LLM integration.
+The business rules are separated from future AI reasoning.
 """
+
+from app.services.lookup_service import find_reservation, get_policy
 
 
 def evaluate_late_checkin(reservation, policy):
@@ -27,3 +29,16 @@ def evaluate_late_checkin(reservation, policy):
         "decision": "needs_review",
         "reason": "policy_restriction"
     }
+
+
+def process_late_checkin(reservation_id: str, guest_message: str):
+    """Execute the MVP guest request workflow."""
+
+    reservation = find_reservation(reservation_id)
+    policy = get_policy("late_checkin")
+
+    result = evaluate_late_checkin(reservation, policy)
+    result["intent"] = "late_checkin"
+    result["guest_message"] = guest_message
+
+    return result
