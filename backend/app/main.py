@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import workflows, actions, conversations
+from app.api import workflows, actions, conversations, agent
 from app.database.startup import initialize_application_database
 
 
@@ -34,6 +34,7 @@ app.add_middleware(
 app.include_router(workflows.router)
 app.include_router(actions.router)
 app.include_router(conversations.router)
+app.include_router(agent.router)
 
 
 @app.get("/")
