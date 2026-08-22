@@ -1,0 +1,4 @@
+room_id,room_type,status
+101,Standard,available
+202,Deluxe,occupied
+303,Suite,available
