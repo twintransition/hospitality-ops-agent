@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: hospitality_ops_postgres
+    environment:
+      POSTGRES_USER: hospitality
+      POSTGRES_PASSWORD: hospitality
+      POSTGRES_DB: hospitality_ops
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/app/knowledge/migrations:/docker-entrypoint-initdb.d
+
+volumes:
+  postgres_data:
