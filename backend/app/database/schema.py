@@ -26,11 +26,22 @@ CREATE TABLE IF NOT EXISTS policies (
     late_checkin_allowed INTEGER DEFAULT 0
 );
 
+CREATE TABLE IF NOT EXISTS conversations (
+    conversation_id TEXT PRIMARY KEY,
+    guest_id TEXT,
+    reservation_id TEXT,
+    guest_message TEXT,
+    agent_response TEXT,
+    intent TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE IF NOT EXISTS agent_actions (
     action_id TEXT PRIMARY KEY,
     reservation_id TEXT,
     decision TEXT,
-    reason TEXT
+    reason TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 """
 
