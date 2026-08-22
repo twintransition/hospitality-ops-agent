@@ -1,0 +1,4 @@
+reservation_id,guest_id,room_type,check_in,check_out,status
+R1001,G001,Deluxe,2026-09-12,2026-09-15,confirmed
+R1002,G002,Standard,2026-09-20,2026-09-22,confirmed
+R1003,G003,Suite,2026-10-01,2026-10-05,confirmed
