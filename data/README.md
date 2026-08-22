@@ -1,27 +1,31 @@
-# Data Design
+# Hospitality Operations Agent Data
 
-The project uses multiple data layers.
+This project uses a workflow-oriented data design.
 
-## Operational Data
+## Data layers
 
-Synthetic PMS-style data:
+### Synthetic operational environment
+
+A simplified hotel operations database used for development and evaluation:
 
 - guests
 - reservations
 - rooms
-- tasks
+- policies
+- conversations
+- agent actions
 
-## Knowledge Base
+### External conversation data
 
-SOP documents:
+Hospitality conversation datasets are referenced as evaluation material. External datasets are not copied into the repository unless licensing permits.
 
-- check-in policy
-- late arrival policy
-- cancellation policy
-- complaint handling
+### Workflow scenarios
 
-## Conversation Data
+Scenario files define:
 
-Hospitality guest requests used for agent testing.
+- guest request
+- required tools/actions
+- expected workflow outcome
+- evaluation criteria
 
-The system is evaluated on workflow completion, not only response quality.
+The goal is not chatbot response generation. The goal is testing whether an AI agent can follow hospitality operational procedures.
