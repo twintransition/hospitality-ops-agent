@@ -1,6 +1,15 @@
-# Backend
+# Backend MVP
 
-FastAPI service for hospitality operations workflows.
+FastAPI service for the hospitality operations agent.
+
+Current implementation stage:
+
+- operational data models
+- workflow execution skeleton
+- tool interfaces
+- agent action logging
+
+The backend is intentionally workflow-first. LLM integration will be added after deterministic business workflows are validated.
 
 Planned modules:
 
